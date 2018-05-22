@@ -30,6 +30,17 @@
             ]
         },
         {
+            "name": "purpose",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/KDE/purpose",
+                    "branch": "master"
+                }
+            ]
+        },
+        {
             "name": "koko",
             "buildsystem": "cmake-ninja",
             "sources": [
