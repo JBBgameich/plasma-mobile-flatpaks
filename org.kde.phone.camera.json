@@ -1,0 +1,50 @@
+{
+    "id": "org.kde.phone.camera",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "5.10",
+    "sdk": "org.kde.Sdk",
+    "command": "plasma-camera",
+    "tags": ["nightly"],
+    "desktop-file-name-prefix": "(Nightly) ",
+    "finish-args": [
+        "--share=ipc",
+        "--share=network",
+        "--socket=x11",
+        "--socket=wayland",
+        "--device=all",
+        "--filesystem=home"
+    ],
+    "separate-locales": false,
+
+    "modules": [
+        {
+            "name": "kdeclerative",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/KDE/kdeclarative"
+                }
+            ]
+        },
+        {
+            "name": "plasma-camera",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/KDE/plasma-camera",
+                    "branch": "jbb/kirigami"
+                },
+                {
+                    "type": "file",
+                    "path": "plasma-camera/wrapper",
+                    "dest-filename": "plasma-camera"
+                }
+            ],
+            "post-install": [
+                "install -m755 plasma-camera /app/bin"
+            ]
+        }
+    ]
+}

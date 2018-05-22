@@ -1,0 +1,3 @@
+#!/bin/sh
+
+kpackagelauncherqml -a org.kde.phone.camera
